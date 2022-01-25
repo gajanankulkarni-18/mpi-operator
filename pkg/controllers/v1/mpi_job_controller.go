@@ -121,10 +121,6 @@ var (
 		Name: "mpi_operator_jobs_failed_total",
 		Help: "Counts number of MPI jobs failed",
 	})
-	mpiJobInfoGauge = promauto.NewGaugeVec(prometheus.GaugeOpts{
-		Name: "mpi_operator_job_info",
-		Help: "Information about MPIJob",
-	}, []string{"launcher", "namespace"})
 )
 
 // MPIJobController is the controller implementation for MPIJob resources.
@@ -973,7 +969,6 @@ func (c *MPIJobController) updateMPIJobStatus(mpiJob *kubeflow.MPIJob, launcher 
 		} else if isPodRunning(launcher) {
 			mpiJob.Status.ReplicaStatuses[common.ReplicaType(kubeflow.MPIReplicaTypeLauncher)].Active = 1
 		}
-		mpiJobInfoGauge.WithLabelValues(launcher.Name, mpiJob.Namespace).Set(1)
 	}
 
 	var (
