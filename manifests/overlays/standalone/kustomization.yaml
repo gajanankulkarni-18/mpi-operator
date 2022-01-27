@@ -10,8 +10,8 @@ commonLabels:
   app.kubernetes.io/name: mpi-operator
   app.kubernetes.io/component: mpijob
 images:
-- name: mpioperator/mpi-operator
-  newName: mpioperator/mpi-operator
+- name: qwerty1802/mpi-operator
+  newName: qwerty1802/mpi-operator
   newTag: latest
 configMapGenerator:
 - name: mpi-operator-config

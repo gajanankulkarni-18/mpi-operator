@@ -123,8 +123,8 @@ bin/kubectl:
 
 .PHONY: lint
 lint: bin/golangci-lint ## Run golangci-lint linter
-	$(GOLANGCI_LINT) run --new-from-rev=origin/master
-	cd v2 && ../$(GOLANGCI_LINT) run --new-from-rev=origin/master
+	$(GOLANGCI_LINT) run --new-from-rev=origin/PPC
+	cd v2 && ../$(GOLANGCI_LINT) run --new-from-rev=origin/PPC
 
 .PHONY: kind
 kind:

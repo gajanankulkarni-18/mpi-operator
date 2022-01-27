@@ -6,7 +6,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags "-w" -o /bin/kubectl-delivery git
 # Install kubectl
 ENV K8S_VERSION v1.15.0
 RUN apt-get install wget
-RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/amd64/kubectl
+RUN wget -q https://storage.googleapis.com/kubernetes-release/release/${K8S_VERSION}/bin/linux/ppc64le/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /bin/kubectl
 
